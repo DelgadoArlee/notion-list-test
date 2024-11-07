@@ -38,3 +38,27 @@ export async function GET() {
     );
   }
 }
+
+export async function POST(req: Request) {
+  try {
+    const { id, name } = await req.json();
+
+    return new Response(
+      JSON.stringify({
+        id,
+        name,
+        message: "Data successfully received",
+      }),
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error(error);
+    return new Response(
+      JSON.stringify({
+        message: "Internal Server Error",
+        error: error.message,
+      }),
+      { status: 500 }
+    );
+  }
+}
