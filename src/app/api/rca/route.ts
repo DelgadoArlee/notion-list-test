@@ -3,7 +3,6 @@ import { createRcaDropdownItems } from "@/lib/notion";
 import { Client } from "@notionhq/client";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
-// Initialize Notion client
 const notion: Client = new Client({ auth: process.env.NOTION_SECRET });
 const mainDbId: string | undefined = process.env.NOTION_MAIN_DB_ID;
 const allowedOriginsEnv = process.env.ALLOWED_ORIGINS;
@@ -147,7 +146,7 @@ export const POST = async (req: Request) => {
       return new Response(JSON.stringify({ message: "Origin not allowed" }), {
         status: 403,
         headers: {
-          "Access-Control-Allow-Origin": origin || "", // Set the origin dynamically
+          "Access-Control-Allow-Origin": origin || "",
           "Access-Control-Allow-Methods": "POST, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type",
         },
