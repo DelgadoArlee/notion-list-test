@@ -1,6 +1,7 @@
 import { fetchDbPages } from "@/lib/notion";
 import { createRcaDropdownItems } from "@/lib/notion";
 import { Client } from "@notionhq/client";
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 // Initialize Notion client
 const notion: Client = new Client({ auth: process.env.NOTION_SECRET });
